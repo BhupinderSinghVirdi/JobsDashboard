@@ -18,9 +18,15 @@ const app = express();
 app.use(cors())
 app.use(express.json());
 
-const routes = require('./routes/routes');
+/*
+    Define routes
+*/
+const jobsRoutes = require('./routes/jobs');
 
-app.use('/api', routes)
+/*
+    add route to middleware
+*/
+app.use('/api/jobs', jobsRoutes)
 
 app.listen(3001, () => {
     console.log(`Server Started at ${3001}`)

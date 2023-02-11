@@ -1,10 +1,22 @@
 const express = require('express');
-const Model = require('../models/model');
+const JobsModel = require('../models/JobsModel');
 const router = express.Router();
 
+
+//Get all Method
+router.get('/', async (req, res) => {
+    try {
+        const data = await JobsModel.find();
+        res.json(data)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
 //Post Method
-router.post('/post', async (req, res) => {
-    const data = new Model({
+router.post('/', async (req, res) => {
+    const data = new JobsModel({
         name: req.body.name,
         age: req.body.age
     })
@@ -18,21 +30,10 @@ router.post('/post', async (req, res) => {
     }
 })
 
-//Get all Method
-router.get('/getAll', async (req, res) => {
-    try {
-        const data = await Model.find();
-        res.json(data)
-    }
-    catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-})
-
 //Get by ID Method
-router.get('/getOne/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
-        const data = await Model.findById(req.params.id);
+        const data = await JobsModel.find({id:req.params.id});
         res.json(data)
     }
     catch (error) {
@@ -41,13 +42,13 @@ router.get('/getOne/:id', async (req, res) => {
 })
 
 //Update by ID Method
-router.patch('/update/:id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
         const options = { new: true };
 
-        const result = await Model.findByIdAndUpdate(
+        const result = await JobsModel.findByIdAndUpdate(
             id, updatedData, options
         )
 
@@ -59,10 +60,10 @@ router.patch('/update/:id', async (req, res) => {
 })
 
 //Delete by ID Method
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const data = await Model.findByIdAndDelete(id)
+        const data = await JobsModel.findByIdAndDelete(id)
         res.send(`Document with ${data.name} has been deleted..`)
     }
     catch (error) {
