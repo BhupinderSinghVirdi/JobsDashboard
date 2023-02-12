@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 import './App.css';
+import ReadAcc from './components/ReadAccount';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
 				/>
 				<Route path="/jobs-applied" element=
 				{<p>This is the Jobs-Applied page.</p>}
+				/>
+				<Route path="/AccountDetails" element=
+				{<ReadAcc />}
 				/>
 				<Route path="/login" element=
 				{<p>This is the Login page.</p>}
