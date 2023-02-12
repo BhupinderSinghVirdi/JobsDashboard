@@ -12,6 +12,9 @@ function App() {
 				<Route path="/jobs" element=
 				{<p>This is the Jobs page.</p>}
 				/>
+				<Route path="/jobs-applied" element=
+				{<p>This is the Jobs-Applied page.</p>}
+				/>
 				<Route path="/login" element=
 				{<p>This is the Login page.</p>}
 				/>
