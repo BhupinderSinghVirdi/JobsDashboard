@@ -1,4 +1,5 @@
 const express = require('express');
+const AccountModel = require('../models/AccountModel');
 const JobsModel = require('../models/JobsModel');
 const router = express.Router();
 
@@ -60,10 +61,10 @@ router.patch('/:id', async (req, res) => {
 })
 
 //Delete by ID Method
-router.delete('/:id', async (req, res) => {
+router.delete('/delete', async (req, res) => {
     try {
         const id = req.params.id;
-        const data = await JobsModel.findByIdAndDelete(id)
+        const data = await AccountModel.findByIdAndDelete(id)
         res.send(`Document with ${data.name} has been deleted..`)
     }
     catch (error) {
