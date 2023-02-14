@@ -5,7 +5,7 @@ interface Props {
   email: String;
 }
 
-const Del = (props: Props) => {
+const DelAcc = (props: Props) => {
   return (
     <div id="DelComp">
       <p>Are you sure you want to delete your account?</p>
@@ -25,4 +25,4 @@ const Del = (props: Props) => {
   );
 };
 
-export default Del;
+export default DelAcc;

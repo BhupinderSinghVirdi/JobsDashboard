@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Login = () => {
+interface Props{
+    email: String;
+    otp: Number;
+}
+
+const CreateAcc = (props : Props) => {
     return(
         <div>
             <h1>
@@ -13,4 +18,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default CreateAcc;
