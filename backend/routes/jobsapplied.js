@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 //Get all Method
-router.get('/jobsapplied', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const data = await JobsAppliedModel.find();
         res.json(data)
@@ -15,7 +15,7 @@ router.get('/jobsapplied', async (req, res) => {
 })
 
 //Post Method
-router.post('/jobsapplied', async (req, res) => {
+router.post('/', async (req, res) => {
     let body = req.body;
     const data = new JobsAppliedModel({
         jobs_applied: {
@@ -34,7 +34,7 @@ router.post('/jobsapplied', async (req, res) => {
 })
 
 //Get by ID Method
-router.get('/jobsapplied/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const data = await JobsAppliedModel.find({id:req.params.id});
         res.json(data)
@@ -45,7 +45,7 @@ router.get('/jobsapplied/:id', async (req, res) => {
 })
 
 //Update by ID Method
-router.patch('/jobsapplied/:id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
