@@ -5,7 +5,7 @@ const router = express.Router();
 //Read account
 router.get("/getAccount", async (req, res) => {
   try {
-    const accData = await AccountModel.find({ id: req.body.id });
+    const accData = await AccountModel.findById({ id: req.body.id });
     res.json(accData);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -35,7 +35,7 @@ router.put("/updateAccount", async (req, res) => {
     const name = req.body.name;
     const options = { new: true };
 
-    const result = await AccountModel.findByIdAndUpdate(id, name, options);
+    const result = await AccountModel.updateOne({ _id: id }, { $set: {'name' : name} });
 
     res.send(result);
   } catch (error) {
