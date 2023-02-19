@@ -1,14 +1,54 @@
 const mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
-const jobs_appliedSchema = new Schema({
-  date_applied : String,
-})
+const jobsModel = new mongoose.Schema(
+  {
+    "slug": {
+      "type": "Date"
+    },
+    "id": {
+      "type": "String"
+    },
+    "epoch": {
+      "type": "Number"
+    },
+    "date": {
+      "type": "Date"
+    },
+    "company": {
+      "type": "String"
+    },
+    "company_logo": {
+      "type": "String"
+    },
+    "position": {
+      "type": "String"
+    },
+    "tags": {
+      "type": [
+        "String"
+      ]
+    },
+    "logo": {
+      "type": "String"
+    },
+    "description": {
+      "type": "String"
+    },
+    "location": {
+      "type": "String"
+    },
+    "salary_min": {
+      "type": "Number"
+    },
+    "salary_max": {
+      "type": "Number"
+    },
+    "url": {
+      "type": "Date"
+    },
+    "apply_url": {
+      "type": "Date"
+    }
+  });
 
-
-JobsAppliedSchema = new Schema({
-  jobs_applied : jobs_appliedSchema,
-  user_id : String,
-});
-
-module.exports = mongoose.model('JobsApplied', JobsAppliedSchema, 'jobsapplied')
+module.exports = mongoose.model('JobsModel', jobsModel, 'jobs')
