@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import JobsAppliedView from '../../ui/JobsAppliedView'
 import axios from 'axios';
 
@@ -33,7 +34,9 @@ const ViewJobsApplied = () => {
 
 	return (
 		<div className='place-content-center'>
-			<button className='ml-3 rounded bg-purple-800 text-white py-2 px-4'>Apply To Jobs</button>
+			<div className='ml-3 my-5'>
+				<Link to="/jobs" className=" rounded bg-indigo-500 text-white py-2 px-4 ">Apply To Jobs</Link>{" "}
+			</div>
 			{
 				jobs_applied.length > 0 ? 
 				jobs_applied.map((jobs_applied) => (
