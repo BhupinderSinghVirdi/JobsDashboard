@@ -1,18 +1,28 @@
 const express = require('express');
 const JobsAppliedModel = require('../models/JobsAppliedModel');
+const JobsModel = require('../models/JobsModel');
 const router = express.Router();
 
 
 //Get all Method
 router.get('/', async (req, res) => {
     try {
-        const data = await JobsAppliedModel.find();
-        res.json(data)
+      const jobsAppliedData = await JobsAppliedModel.find().lean();
+      const transformedData = await Promise.all(jobsAppliedData.map(async (job_data) => {
+        const transformedJobs = await Promise.all(job_data.jobs_applied.map(async (job) => {
+          const job_id = job.job_id;
+          const jobdata = await JobsModel.find({_id: job_id}).lean();
+          const output = jobdata.map(({ _id, ...jobdata }) => jobdata);
+          return {...job, ...output[0]};
+        }));
+        return { ...job_data, jobs_applied: transformedJobs };
+      }));
+      res.json(transformedData);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
-    catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-})
+});
+  
 
 //Post Method
 router.post('/', async (req, res) => {
