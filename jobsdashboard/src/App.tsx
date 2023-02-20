@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
-import ViewJobsApplied from './components/Jobs/ViewJobsApplied';
-
 import './App.css';
-import ReadAcc from './components/ReadAccount';
+import ReadAcc from './components/Account/ReadAccount';
 import Login from './components/LoginComponent';
 
 function App() {
   return (
-    	<Router>
+    <Router>
 			<Navigation/>
 			<Routes>
 				<Route path="/" element={<p>This is Home Page.</p>} />
@@ -17,16 +15,16 @@ function App() {
 				{<p>This is the Jobs page.</p>}
 				/>
 				<Route path="/jobs-applied" element=
-				{<ViewJobsApplied/>}
+				{<p>This is the Jobs-Applied page.</p>}
 				/>
 				<Route path="/AccountDetails" element=
 				{<ReadAcc />}
 				/>
 				<Route path="/login" element=
-				{<Login />}
+				{<Login/>}
 				/>
 			</Routes>
-		</Router>
+		  </Router>
   );
 }
 
