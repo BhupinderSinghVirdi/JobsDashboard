@@ -79,16 +79,6 @@ const Login = () => {
                 </p>
             </div>
         </div>
-
-
-        // <div>
-        //     <h1>Please Login to view jobs</h1>
-        //     <form onSubmit={handleSubmit}>
-        //         <input type="text" placeholder="Enter Email" />
-        //         <input type="number" placeholder="Enter otp" />
-        //         <button type="submit" value="Continue"/>
-        //     </form>
-        // </div>
     )
 }
 export default Login;
