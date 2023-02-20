@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 import './App.css';
 import ReadAcc from './components/ReadAccount';
+import Login from './components/LoginComponent';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
 				{<ReadAcc />}
 				/>
 				<Route path="/login" element=
-				{<p>This is the Login page.</p>}
+				{<Login />}
 				/>
 			</Routes>
 		  </Router>

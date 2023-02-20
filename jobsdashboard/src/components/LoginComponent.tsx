@@ -2,31 +2,29 @@ import React from "react";
 import { ReactDOM } from "react";
 import { useState } from "react";
 
-interface Props {
-    email : string,
-    verification: number
-}
-
-const Login = (props: Props) => {
-    const [LogStatus, updateLogStatus] = useState()
+const Login = () => {
+    const [LogStatus, updateLogStatus] = useState({
+        email: '',
+        otp: ''
+    })
     
     const handlechange = (e : Event) => {
         updateLogStatus(LogStatus)
     };
 
+    const handleSubmit = (e : React.SyntheticEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        
+    }
+
     return(
         <div>
-            <p>login component for JobsDashboard</p>
+            <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="Enter Email" />
+                <input type="number" placeholder="Enter otp" />
+                <button type="submit" value="Continue"/>
+            </form>
         </div>
-        // <div>
-        //     {/* <form onSubmit={handlechange}>
-        //         {/* <input 
-        //             type='text'
-        //             value=
-                
-        //         /> */}
-
-        //     </form> */}
-        // </div>
     )
 }
+export default Login;
