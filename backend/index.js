@@ -22,12 +22,21 @@ app.use(express.json());
     Define routes
 */
 const jobsRoutes = require('./routes/jobs');
+
 const accountRoutes = require('./routes/account')
+
+const jobsAppliedRoutes = require('./routes/jobsapplied');
+
+
 /*
     add route to middleware
 */
 app.use('/api/jobs', jobsRoutes)
+
 app.use('/api/account', accountRoutes)
+
+app.use('/api/jobsapplied', jobsAppliedRoutes)
+
 
 app.listen(3001, () => {
     console.log(`Server Started at ${3001}`)
