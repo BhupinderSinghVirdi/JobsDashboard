@@ -1,12 +1,12 @@
 const express = require('express');
-const JobsModel = require('../models/JobsModel');
+const AdminModel = require('../models/AdminModel');
 const router = express.Router();
 
 
-//Get all Method
+//Get by ID Method
 router.get('/', async (req, res) => {
     try {
-        const data = await JobsModel.find();
+        const data = await AdminModel.findById({_id:req.params.id});
         res.json(data)
     }
     catch (error) {
@@ -16,28 +16,19 @@ router.get('/', async (req, res) => {
 
 //Post Method
 router.post('/', async (req, res) => {
-    const data = new JobsModel({
-        name: req.body.name,
-        age: req.body.age
+    const data = new AdminModel({
+        firstname: req.body.firstname,
+        middlename: req.body.middlename,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        password: req.body.password
     })
-
     try {
         const dataToSave = await data.save();
         res.status(200).json(dataToSave)
     }
     catch (error) {
         res.status(400).json({ message: error.message })
-    }
-})
-
-//Get by ID Method
-router.get('/:id', async (req, res) => {
-    try {
-        const data = await JobsModel.find({_id:req.params.id});
-        res.json(data)
-    }
-    catch (error) {
-        res.status(500).json({ message: error.message })
     }
 })
 
@@ -48,10 +39,9 @@ router.patch('/:id', async (req, res) => {
         const updatedData = req.body;
         const options = { new: true };
 
-        const result = await JobsModel.findByIdAndUpdate(
+        const result = await AdminModel.findByIdAndUpdate(
             id, updatedData, options
         )
-
         res.send(result)
     }
     catch (error) {
@@ -60,15 +50,15 @@ router.patch('/:id', async (req, res) => {
 })
 
 //Delete by ID Method
-router.delete('/:id', async (req, res) => {
+/*router.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const data = await JobsModel.findByIdAndDelete(id)
+        const data = await AdminModel.findByIdAndDelete(id)
         res.send(`Document with ${data.name} has been deleted..`)
     }
     catch (error) {
         res.status(400).json({ message: error.message })
     }
 })
-
+*/
 module.exports = router;
