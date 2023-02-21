@@ -5,6 +5,7 @@ import "./App.css";
 import ReadAcc from "./components/Account/ReadAccount";
 import Login from "./components/LoginComponent";
 import ViewJobsApplied from "./components/Jobs/ViewJobsApplied";
+import ViewJobsDetails from "./components/Jobs/ViewJobDetails";
 import EditAcc from "./components/Account/EditAccount";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<p>This is Home Page.</p>} />
         <Route path="/jobs" element={<p>This is the Jobs page.</p>} />
         <Route path="/jobs-applied" element={<ViewJobsApplied />} />
+        <Route path="/jobs-details/:id" element={<ViewJobsDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/AccountDetails" element={<EditAcc email="blah blah" name="Demo User" phoneNumber={989282929}/>} />
       </Routes>
