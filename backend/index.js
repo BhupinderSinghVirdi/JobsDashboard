@@ -27,6 +27,8 @@ const accountRoutes = require('./routes/account')
 
 const jobsAppliedRoutes = require('./routes/jobsapplied');
 
+const adminRoutes = require('./routes/admin');
+
 
 /*
     add route to middleware
@@ -36,6 +38,8 @@ app.use('/api/jobs', jobsRoutes)
 app.use('/api/account', accountRoutes)
 
 app.use('/api/jobsapplied', jobsAppliedRoutes)
+
+app.use('/api/admins', adminRoutes)
 
 
 app.listen(3001, () => {
