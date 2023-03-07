@@ -11,7 +11,7 @@ import EditAcc from "./components/Account/EditAccount";
 
 function App() {
   return (
-	<div className='bg-gray-100 h-screen'>
+	<div className='bg-gray-100 h-full'>
     <Router>
       <Navigation />
       <Routes>
