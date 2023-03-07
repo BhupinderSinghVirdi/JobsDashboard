@@ -17,7 +17,7 @@ type JobsDetailsProps = {
 
 const JobsAppliedView = ({job_details}: JobsDetailsProps) => {
     return (
-      <div className='flex flex-wrap'>
+      <div className='flex flex-row'>
         <div className='lg:w-2/3 pr-4 pl-4'>
           <JobDetailsHeader/>
           <JobDetailsDescription/>
