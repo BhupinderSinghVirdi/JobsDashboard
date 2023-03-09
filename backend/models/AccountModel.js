@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const AccountModel = new mongoose.Schema(
     {
 
-
         "email": {
             "type" : "string"
         },

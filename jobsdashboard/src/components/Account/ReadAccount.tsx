@@ -4,7 +4,11 @@ import { ReactDOM } from "react";
 import Axios from 'axios';
 
 interface Props{
-
+    name: string;
+    email: string;
+    communication: String;
+    notifications: Boolean;
+    
 };
 
 const ReadAcc = (props:Props) => {
