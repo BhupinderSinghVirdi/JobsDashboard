@@ -1,16 +1,15 @@
-const mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
 
-const jobs_appliedSchema = new Schema({
-  date_applied : String,
-  job_id : String
+const jobApplicationSchema = new Schema({
+  _id: Schema.Types.ObjectId,
+  date_applied: { type: Date, default: Date.now },
+  job_id: { type: Schema.Types.ObjectId, required: true },
+  archive: { type: Boolean, default: false },
 });
 
-
-JobsAppliedSchema = new Schema({
-  jobs_applied : [jobs_appliedSchema],
-  user_id : String,
+const JobsAppliedSchema = new Schema({
+  user_id: { type: Schema.Types.ObjectId, required: true },
+  jobs_applied: [jobApplicationSchema],
 });
 
-module.exports = mongoose.model('JobsApplied', JobsAppliedSchema, 'jobsapplied')
+module.exports = mongoose.model('JobsApplied', JobsAppliedSchema, 'jobsapplied');
