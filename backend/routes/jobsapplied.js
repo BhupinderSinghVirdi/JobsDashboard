@@ -1,4 +1,5 @@
 const express = require('express');
+const ObjectId = require('mongodb').ObjectId;
 const JobsAppliedModel = require('../models/JobsAppliedModel');
 const JobsModel = require('../models/JobsModel');
 const router = express.Router();
@@ -63,19 +64,32 @@ router.post('/', async (req, res) => {
 });
 
 //Update by ID Method
-router.patch('/:id/:job_id', async (req, res) => {
+router.patch('/:user_id/:job_id', async (req, res) => {
     try {
-    const id = req.params.id;
-    const job_id = req.params.job_id;
-    const updatedData = req.body;
-    const options = { new: true };
+      const user_id = req.params.user_id;
+      const job_id = req.params.job_id;
+      const filter = {
+        "user_id": user_id, 
+        "jobs_applied._id": ObjectId(job_id)
+      };
+      const { _id, ...updatedData } = req.body;
+      
+      let setData = false;
+      if(updatedData.hasOwnProperty('archive')){
+        setData = { "jobs_applied.$.archive": updatedData.archive }
+      }
+
+      const options = { new: true };
+      if(setData){
         const result = await JobsAppliedModel.findOneAndUpdate(
-            { _id: id, "jobs_applied._id": job_id }, 
-            { $set: { "jobs_applied.$": updatedData } },
+            filter, 
+            { $set: setData },
             options
         );
-    
         res.send(result);
+      }else{
+        res.send("No data to update");
+      }
     }
     catch (error) {
         res.status(500).json({ message: error.message });
@@ -99,3 +113,5 @@ router.delete('/:id/:job_id', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+module.exports = router;
