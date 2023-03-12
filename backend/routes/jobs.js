@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
 //Get by ID Method
 router.get('/:id', async (req, res) => {
     try {
-        const data = await JobsModel.find({_id:req.params.id});
+        const data = await JobsModel.findOne({_id:req.params.id});
         res.json(data)
     }
     catch (error) {
