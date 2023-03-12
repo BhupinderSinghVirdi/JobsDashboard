@@ -8,6 +8,7 @@ import ViewJobsApplied from "./components/Jobs/ViewJobsApplied";
 import ViewJobsDetails from "./components/Jobs/ViewJobDetails";
 import ViewJobsListing from "./components/Jobs/JobsListing";
 import EditAcc from "./components/Account/EditAccount";
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/jobs-details/:id" element={<ViewJobsDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/AccountDetails" element={<EditAcc email="blah blah" name="Demo User" phoneNumber={989282929}/>} />
+        <Route path="*" element={<NotFound/>}></Route>
       </Routes>
     </Router>
 	</div>
