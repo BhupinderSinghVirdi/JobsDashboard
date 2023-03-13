@@ -3,10 +3,11 @@ const AdminModel = require('../models/AdminModel');
 const router = express.Router();
 
 
-//Get by ID Method
+//Get all Method
 router.get('/', async (req, res) => {
     try {
-        const data = await AdminModel.findById({_id:req.params.id});
+        console.log(req.body.id)
+        const data = await AdminModel.find();
         res.json(data)
     }
     catch (error) {
@@ -14,11 +15,24 @@ router.get('/', async (req, res) => {
     }
 })
 
+//Get by ID Method
+router.get('/:id', async (req, res) => {
+    try {
+        console.log(req.params.id)
+        const data = await AdminModel.findOne({_id:req.params.id});
+        res.json(data)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
+
 //Post Method
 router.post('/', async (req, res) => {
+    console.log(req.body)
     const data = new AdminModel({
         firstname: req.body.firstname,
-        middlename: req.body.middlename,
         lastname: req.body.lastname,
         email: req.body.email,
         password: req.body.password

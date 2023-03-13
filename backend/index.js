@@ -3,6 +3,7 @@ const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoString = process.env.DATABASE_URL;
+const cookieSession = require("cookie-session");
 
 mongoose.connect(mongoString);
 const database = mongoose.connection;
@@ -17,6 +18,14 @@ database.once('connected', () => {
 const app = express();
 app.use(cors())
 app.use(express.json());
+
+app.use(
+    cookieSession({
+      name: "bezkoder-session",
+      secret: "COOKIE_SECRET", // should use as secret environment variable
+      httpOnly: true
+    })
+  );
 
 /*
     Define routes
