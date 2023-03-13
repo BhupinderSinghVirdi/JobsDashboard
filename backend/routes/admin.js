@@ -4,6 +4,29 @@ const router = express.Router();
 
 
 //Get all Method
+router.post('/login', async (req, res) => {
+    try {
+        console.log(req.body.email)
+        const data = await AdminModel.findOne({email:req.body.email});
+         const { email } = req.body;
+        console.log(req.body)
+        if(data)
+        {
+            console.log("logged in")
+        }
+        else
+        {
+            console.log("login failed")
+        }
+        res.json(data)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
+
+//Get all Method
 router.get('/', async (req, res) => {
     try {
         console.log(req.body.id)

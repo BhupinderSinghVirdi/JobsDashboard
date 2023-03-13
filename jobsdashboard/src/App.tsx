@@ -24,7 +24,7 @@ function App() {
         <Route path="/jobs-details/:id" element={<ViewJobsDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin-login" element={<AdminLogin />} />
-        <Route path="/adminjobslist" element={<AdminLogin />} />
+        <Route path="/adminjobslist" element={<AdminJobsListView />} />
         <Route path="/AccountDetails" element={<EditAcc email="blah blah" name="Demo User" phoneNumber={989282929}/>} />
         <Route path="*" element={<NotFound/>}></Route>
       </Routes>
