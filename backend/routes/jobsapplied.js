@@ -3,6 +3,19 @@ const ObjectId = require('mongodb').ObjectId;
 const JobsAppliedModel = require('../models/JobsAppliedModel');
 const JobsModel = require('../models/JobsModel');
 const router = express.Router();
+const path = require('path');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '..', 'uploads'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${file.fieldname}-${Date.now()}-${file.originalname}`);
+  },
+});
+
+const upload = multer({ storage });
 
 
 //Get all Method
@@ -44,20 +57,23 @@ router.get('/:id', async (req, res) => {
 
 
 //Post Method
-router.post('/', async (req, res) => {
+router.post('/',upload.single('file'), async (req, res) => {
   try {
-    const { user_id, job_id } = req.body;
+    const { user_id, job_id, apply_with_name, apply_with_email, apply_with_phone } = req.body;
     const job = await JobsModel.findById(job_id).lean();
+    let filename = "";
+    if (req.file) {
+      filename = req.file.filename;
+    }
     if (!job) return res.status(404).json({ message: 'Job not found' });
 
-    const jobApplication = { date_applied: new Date(), job_id };
+    const jobApplication = { date_applied: new Date().toISOString().substring(0, 19), job_id:job_id,apply_with_name:apply_with_name,apply_with_email:apply_with_email,apply_with_phone:apply_with_phone,resume:filename, status:"Applied",archive:false };
     const data = await JobsAppliedModel.findOneAndUpdate(
-      { user_id },
-      { $push: { jobs_applied: jobApplication } },
+      { user_id:user_id },
+      { $set: { user_id:user_id , jobs_applied: jobApplication } },
       { upsert: true, new: true }
     ).lean();
-    const transformedJob = job.title ? {job_id, job_title: job.title} : {job_id};
-    res.status(200).json({...data, jobs_applied: [{...jobApplication, ...transformedJob}]});
+    res.status(200).json({...data, jobs_applied: [{...jobApplication}]});
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
