@@ -1,7 +1,8 @@
 import React from "react";
 import { ReactDOM } from "react";
 import { useState } from "react";
-import LinkedInLoginComponent from "L"
+import LinkedInPage from "./LinkedInLoginComponent";
+
 const Login = () => {
     const [LogStatus, updateLogStatus] = useState({
         email: '',
@@ -65,8 +66,8 @@ const Login = () => {
                             Login
                         </button>
                     </div>
-                    <div className="mt-6">
-                        <LinkedInLoginComponent></LinkedInLoginComponent>
+                    <div className="mt-6 grid h-screen ">
+                        <LinkedInPage />                     
                     </div>
                 </form>
 

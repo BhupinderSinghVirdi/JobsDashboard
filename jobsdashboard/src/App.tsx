@@ -6,6 +6,7 @@ import ReadAcc from "./components/Account/ReadAccount";
 import Login from "./components/LoginComponent";
 import ViewJobsApplied from "./components/Jobs/ViewJobsApplied";
 import EditAcc from "./components/Account/EditAccount";
+import { LinkedInCallback } from "react-linkedin-login-oauth2";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/jobs" element={<p>This is the Jobs page.</p>} />
         <Route path="/jobs-applied" element={<ViewJobsApplied />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/linkedin" element={<LinkedInCallback />} />
         <Route path="/AccountDetails" element={<EditAcc email="blah blah" name="Demo User" phoneNumber={989282929}/>} />
       </Routes>
     </Router>
