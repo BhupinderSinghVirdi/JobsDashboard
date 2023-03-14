@@ -39,7 +39,6 @@ const JobListView  = ({
         url,
         apply_url
     }: JobItem) => {
-
     return (
         <div className="lg:w-full pr-4 pl-4 md:w-full pr-4 pl-4">
             <div className="single_jobs white-bg flex justify-between">
@@ -48,7 +47,7 @@ const JobListView  = ({
                         <FontAwesomeIcon icon={faCoffee}/>
                     </div>
                     <div className="jobs_conetent">
-                        <a href="job_details.html"><h4>Software Engineer</h4></a>
+                        <a href="job_details.html"><h4>{}</h4></a>
                         <div className="links_locat flex items-center">
                             <div className="location">
                                 <p> <i className="fa fa-map-marker"></i> California, USA</p>
@@ -62,7 +61,9 @@ const JobListView  = ({
                 <div className="jobs_right">
                     <div className="apply_now">
                         <a className="heart_mark" href="#"> <i className="ti-heart"></i> </a>
-                        <a href="job_details.html" className="boxed-btn3">Apply Now</a>
+                        {
+                            <a href={"/jobs-details/" + _id} className="boxed-btn3">Apply Now</a>
+                        }
                     </div>
                     <div className="date">
                         <p>Date line: 31 Jan 2020</p>
