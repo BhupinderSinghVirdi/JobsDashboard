@@ -2,23 +2,28 @@ const express = require('express');
 const AdminModel = require('../models/AdminModel');
 const router = express.Router();
 
-
+var responseMessage='';
 //Get all Method
 router.post('/login', async (req, res) => {
     try {
         console.log(req.body.email)
-        const data = await AdminModel.findOne({email:req.body.email});
+        
+        const data = await AdminModel.findOne({email:req.body.email,password:req.body.password});
          const { email } = req.body;
         console.log(req.body)
+        //var token = jwt.sign({ id: user.id }, "SECRET-KEY", {expiresIn: 86400,});
         if(data)
         {
-            console.log("logged in")
+            responseMessage="login successful"
         }
         else
         {
-            console.log("login failed")
+            responseMessage="login failed"
         }
-        res.json(data)
+        res.status(200).json({
+            message:responseMessage,
+            email:email
+        })
     }
     catch (error) {
         res.status(500).json({ message: error.message })
