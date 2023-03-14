@@ -1,3 +1,4 @@
+
 import React from 'react';
 import JobDetailsView from '../../ui/JobDetailsView';
 import JobDetailsContextProvider, { JobDetailsContext } from '../../context/Jobs/JobDetailsContext';
