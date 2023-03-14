@@ -30,7 +30,7 @@ const Login = () => {
                 <h1 className="text-3xl font-semibold text-center text-blue-500">
                    Log into the portal
                 </h1>
-                <form className="mt-6">
+                <form className="mt-6"action={"/AccountDetails"}>
                     <div className="mb-2">
                         <label
                             // for="email"
@@ -66,7 +66,7 @@ const Login = () => {
                             Login
                         </button>
                     </div>
-                    <div className="mt-6 grid h-screen ">
+                    <div className="mt-6 ">
                         <LinkedInPage />                     
                     </div>
                 </form>
