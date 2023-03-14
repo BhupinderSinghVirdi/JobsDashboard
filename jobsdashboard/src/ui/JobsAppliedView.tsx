@@ -28,7 +28,33 @@ const JobsAppliedView = ({
 		<>
 			<tbody>
 				{jobs_applied.map((job) => (
-					(displayArchived || !job.archive) && <tr key={job._id}>
+					(displayArchived && job.archive) && <tr key={job._id}>
+						<td className='border-grey-light border hover:bg-gray-100 p-3 px-5'>
+							{job.position}
+						</td>
+						<td className='border-grey-light border hover:bg-gray-100 p-3 px-5'>
+							{job.company}
+						</td>
+						<td className='border-grey-light border hover:bg-gray-100 p-3 px-5'>
+							{new Date(job.date_applied).toLocaleDateString()}
+						</td>
+						<td className='border-grey-light border hover:bg-gray-100 p-3 px-5'>
+							{job.status}
+						</td>
+						<td className='border-grey-light border hover:bg-gray-100 p-3 px-5'>
+						{!job.archive && <button
+								onClick={() => handleArchive(user_id, job._id)}
+								className={`${
+									'bg-red-500'
+								} text-white py-2 px-4 rounded`}
+							>
+								<FontAwesomeIcon icon={faArchive} />
+							</button>}
+						</td>
+					</tr>
+				))}
+				{jobs_applied.map((job) => (
+					(!displayArchived && !job.archive) && <tr key={job._id}>
 						<td className='border-grey-light border hover:bg-gray-100 p-3 px-5'>
 							{job.position}
 						</td>
