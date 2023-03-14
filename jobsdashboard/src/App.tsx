@@ -11,10 +11,12 @@ import EditAcc from "./components/Account/EditAccount";
 import NotFound from './components/NotFound';
 import AdminLogin from "./components/Admin/AdminLogin";
 import AdminJobsListView from "./components/Admin/AdminJobsListView";
+import { AuthContextProvider } from "./context/AuthContext";
 
 function App() {
   return (
 	<div className='bg-gray-100 h-full'>
+    <AuthContextProvider>
     <Router>
       <Navigation />
       <Routes>
@@ -29,6 +31,7 @@ function App() {
         <Route path="*" element={<NotFound/>}></Route>
       </Routes>
     </Router>
+    </AuthContextProvider>
 	</div>
   );
 }

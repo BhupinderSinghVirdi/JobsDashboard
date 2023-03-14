@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarker, faClock, faCoffee  } from '@fortawesome/free-solid-svg-icons'
+import JobsListing from '../Jobs/JobsListing';
 
 type JobItem = {
         _id: string
@@ -24,7 +25,12 @@ type JobItem = {
 const AdminJobsListView  = () => {
 
     return (
+        <div>
+        <h2>Admin View</h2>
         <p>This is Admin jobs list View</p>
+        <JobsListing></JobsListing>
+        </div>
+
     );
 };
 
