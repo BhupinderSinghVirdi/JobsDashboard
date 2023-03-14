@@ -39,6 +39,14 @@ const JobListView  = ({
         url,
         apply_url
     }: JobItem) => {
+
+    let newDate : Date = new Date(date);
+    const formattedDate = newDate.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+        })
+
     return (
         <div className="lg:w-full pr-4 pl-4 md:w-full pr-4 pl-4">
             <div className="single_jobs white-bg flex justify-between">
@@ -63,7 +71,7 @@ const JobListView  = ({
                         <a href={"/jobs-details/" + _id} className="boxed-btn3">Apply Now</a>
                     </div>
                     <div className="date">
-                        <p>Added : {date}</p>
+                        <p>Added : {formattedDate}</p>
                     </div>
                 </div>
             </div>
