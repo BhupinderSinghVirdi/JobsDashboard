@@ -21,6 +21,7 @@
     "cors": "^2.8.5",
     "html-react-parser": "^3.0.12",
     "jsonwebtoken": "^9.0.0",
+    "html-react-parser": "^3.0.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",

@@ -58,19 +58,30 @@ const ViewJobsApplied = () => {
 					className={`${ displayArchived ? 'bg-green-500': 'bg-red-500'} text-white py-2 px-4 rounded`}
 				>{ displayArchived ? "Show Active Jobs" : "Show Archived Jobs" }</button>
 			</div>
-			{
-				jobs_applied.length > 0 ? 
-				jobs_applied.map((jobs_applied) => (
-					<JobsAppliedView 
-						key={jobs_applied._id}
-						user_id={jobs_applied.user_id} 
-						jobs_applied={jobs_applied.jobs_applied}
-						displayArchived={displayArchived}
-						handleArchive={handleArchive} 
-					/>
-				)) : <h1 className='noJobs text-center'>Start applying to view your job applications here!!!</h1>
-			}
-
+			<h2 className='mt-5 text-center'>Jobs Applied</h2>
+			{jobs_applied.length > 0 && <table className='mt-5 w-full text-md bg-white shadow-md rounded mb-4'>
+				<thead className='border-b'>
+					<tr>
+						<th className='text-left p-3 px-5'>Job Title</th>
+						<th className='text-left p-3 px-5'>Company Name</th>
+						<th className='text-left p-3 px-5'>Date Applied</th>
+						<th className='text-left p-3 px-5'>Status</th>
+						<th className='text-left p-3 px-5'>Archive</th>
+					</tr>
+				</thead>
+				{
+					jobs_applied.map((jobs_applied) => (
+						<JobsAppliedView 
+							key={jobs_applied._id}
+							user_id={jobs_applied.user_id} 
+							jobs_applied={jobs_applied.jobs_applied}
+							displayArchived={displayArchived}
+							handleArchive={handleArchive} 
+						/>
+					))				
+				}			
+			</table>}
+			{jobs_applied.length < 0 && <h1 className='noJobs text-center'>Start applying to view your job applications here!!!</h1> }
 		</div>
 	);
 };
