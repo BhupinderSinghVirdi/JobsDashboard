@@ -10,6 +10,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { JobDetailsDescriptionComponent } from './components/job-details-description/job-details-description.component';
 import { JobDetailsHeaderComponent } from './components/job-details-header/job-details-header.component';
 import { JobDetailsSummaryComponent } from './components/job-details-summary/job-details-summary.component';
+import { ViewJobDetailsComponent } from './components/view-job-details/view-job-details.component';
+import { JobDetailsViewComponent } from './ui/job-details-view/job-details-view.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { JobDetailsSummaryComponent } from './components/job-details-summary/job
     JobapplicationformComponent,
     JobDetailsDescriptionComponent,
     JobDetailsHeaderComponent,
-    JobDetailsSummaryComponent
+    JobDetailsSummaryComponent,
+    ViewJobDetailsComponent,
+    JobDetailsViewComponent
   ],
   imports: [
     BrowserModule,
