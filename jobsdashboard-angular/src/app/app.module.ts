@@ -8,13 +8,15 @@ import { JobapplicationformComponent } from './components/jobapplicationform/job
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { JobDetailsDescriptionComponent } from './components/job-details-description/job-details-description.component';
+import { JobDetailsHeaderComponent } from './components/job-details-header/job-details-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TickmarkComponent,
     JobapplicationformComponent,
-    JobDetailsDescriptionComponent
+    JobDetailsDescriptionComponent,
+    JobDetailsHeaderComponent
   ],
   imports: [
     BrowserModule,
