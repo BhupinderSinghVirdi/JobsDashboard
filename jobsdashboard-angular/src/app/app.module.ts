@@ -19,11 +19,14 @@ import { JobsAppliedViewComponent } from './ui/jobs-applied-view/jobs-applied-vi
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountComponent } from './components/account/account.component';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'jobs', pathMatch: 'full' },
   { path: 'jobs-applied', component: ViewJobsAppliedComponent },
   { path: 'jobs-details/:id', component: ViewJobDetailsComponent },
+  { path: 'account/login', component: LoginComponent}
 ];
 
 @NgModule({
@@ -40,7 +43,9 @@ const appRoutes: Routes = [
     JobsAppliedViewComponent,
     NavigationComponent,
     LogoComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    AccountComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
