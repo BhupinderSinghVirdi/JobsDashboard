@@ -1,0 +1,11 @@
+<ng-container *ngIf="jobDetails; else noJobs">
+    <app-job-details-view [jobDetails]="jobDetails"></app-job-details-view>
+  </ng-container>
+  <ng-template #noJobs>
+    <h1 class="noJobs text-center text-base h-screen">
+      We're sorry, but the job you were looking for is no longer available on TeraSearch.
+      However, we have many other exciting opportunities waiting for you. Please browse our
+      current listings and apply for the jobs that interest you. We wish you the best of luck
+      in your job search, and thank you for using TeraSearch.
+    </h1>
+  </ng-template>

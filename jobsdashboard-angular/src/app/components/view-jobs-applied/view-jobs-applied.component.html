@@ -1,0 +1,33 @@
+<div class="place-content-center">
+    <div class="ml-3 my-5">
+        <a routerLink="/jobs" class="rounded bg-indigo-500 text-white py-2 px-4">Apply To Jobs</a>
+        <button (click)="displayArchived = !displayArchived" class="{{displayArchived ? 'bg-green-500' : 'bg-red-500'}} text-white py-2 px-4 rounded">
+            {{ displayArchived ? "Show Active Jobs" : "Show Archived Jobs" }}
+        </button>
+    </div>
+    <h2 class="mt-5 text-center">Jobs Applied</h2>
+    <ng-container *ngIf="jobs_applied.length > 0">
+        <table class="mt-5 w-full text-md bg-white shadow-md rounded mb-4">
+            <thead class="border-b">
+                <tr>
+                    <th class="text-left p-3 px-5">Job Title</th>
+                    <th class="text-left p-3 px-5">Company Name</th>
+                    <th class="text-left p-3 px-5">Date Applied</th>
+                    <th class="text-left p-3 px-5">Status</th>
+                    <th class="text-left p-3 px-5">Archive</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let job of jobs_applied">
+                    <app-jobs-applied-view
+                        [user_id]="job.user_id"
+                        [jobsApplied]="job.jobs_applied"
+                        [displayArchived]="displayArchived"
+                        >
+                    </app-jobs-applied-view>
+                </ng-container>
+            </tbody>
+        </table>
+    </ng-container>
+    <h1 class="noJobs text-center" *ngIf="jobs_applied.length === 0">Start applying to view your job applications here!!!</h1>
+</div>
