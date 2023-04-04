@@ -3,9 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { TickmarkComponent } from './components/tickmark/tickmark.component';
 import { JobapplicationformComponent } from './components/jobapplicationform/jobapplicationform.component';
-import { FormsModule } from '@angular/forms';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { JobDetailsDescriptionComponent } from './components/job-details-description/job-details-description.component';
 import { JobDetailsHeaderComponent } from './components/job-details-header/job-details-header.component';
@@ -31,12 +33,14 @@ import { LogoComponent } from './components/logo/logo.component';
     JobsAppliedViewComponent,
     NavigationComponent,
     LogoComponent
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
