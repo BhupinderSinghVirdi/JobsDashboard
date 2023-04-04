@@ -40,32 +40,38 @@ const JobListView  = ({
         apply_url
     }: JobItem) => {
 
+    let newDate : Date = new Date(date);
+    const formattedDate = newDate.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+        })
+
     return (
         <div className="lg:w-full pr-4 pl-4 md:w-full pr-4 pl-4">
             <div className="single_jobs white-bg flex justify-between">
                 <div className="jobs_left flex items-center">
                     <div className="thumb">
-                        <FontAwesomeIcon icon={faCoffee}/>
+                        <img src={company_logo} className=""/>
                     </div>
                     <div className="jobs_conetent">
-                        <a href="job_details.html"><h4>Software Engineer</h4></a>
+                        <a href={"/jobs-details/" + _id}><h4>{position}</h4></a>
                         <div className="links_locat flex items-center">
                             <div className="location">
-                                <p> <i className="fa fa-map-marker"></i> California, USA</p>
+                                <p> <i className="fa fa-map-marker"></i> {location}</p>
                             </div>
                             <div className="location">
-                                <p> <i className="fa fa-clock-o"></i> Part-time</p>
+                                <p> <i className="fa fa-clock-o"></i> {company}</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="jobs_right">
                     <div className="apply_now">
-                        <a className="heart_mark" href="#"> <i className="ti-heart"></i> </a>
-                        <a href="job_details.html" className="boxed-btn3">Apply Now</a>
+                        <a href={"/jobs-details/" + _id} className="boxed-btn3">Apply Now</a>
                     </div>
                     <div className="date">
-                        <p>Date line: 31 Jan 2020</p>
+                        <p>Added : {formattedDate}</p>
                     </div>
                 </div>
             </div>
