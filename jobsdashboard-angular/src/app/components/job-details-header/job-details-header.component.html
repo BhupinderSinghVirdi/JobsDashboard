@@ -1,0 +1,25 @@
+<div class="job_details_header">
+    <div class="single_jobs bg-white flex justify-between p-10 border-b-2 border-solid border-b-gray-200">
+      <div class="jobs_left flex items-center">
+        <div class="float-left w-20 h-20 p-15 bg-gray-100 mr-10">
+          <img [src]="company_logo" alt="Logo" />
+        </div>
+        <div class="jobs_conetent">
+          <div><h4 class="font-bold text-xl">{{ position }}</h4></div>
+          <div class="links_locat flex items-center">
+            <div class="mr-10">
+              <p class="text-gray-500 mb-0"> <fa-icon [icon]="mapMarkerIcon"></fa-icon> {{ location }} </p>
+            </div>
+            <div class="mr-10">
+              <!-- <p class="text-gray-500 mb-0"> <fa-icon [icon]="clockIcon"></fa-icon> Part-time</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="jobs_right">
+        <div class="apply_now">
+          <!-- <div class="heart_mark w-10 h-10 leading-10 rounded text-green-400 text-center inline-block bg-green-50 cursor-pointer hover:bg-green-400 hover:text-white "> <fa-icon [icon]="heartIcon"></fa-icon> </div> -->
+        </div>
+      </div>
+    </div>
+  </div>

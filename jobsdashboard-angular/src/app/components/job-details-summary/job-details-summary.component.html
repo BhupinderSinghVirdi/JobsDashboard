@@ -1,0 +1,12 @@
+<div class="bg-white">
+    <div class="border-b border-b-solid border-b-gray-200 p-10">
+        <h3>Job Summary</h3>
+    </div>
+    <div class="p-10">
+        <ul class="m-0 p-0">
+        <li class="text-base font-normal text-gray-500 leading-9 pl-4 relative before:border-gray-500 before:absolute before:w-2 before:h-2 before:left-0 before:top-4 before:rounded-full before:border before:content-['']">Published on: <span class="text-gray-900">{{ formattedDate }}</span></li>
+        <li class="text-base font-normal text-gray-500 leading-9 pl-4 relative before:border-gray-500 before:absolute before:w-2 before:h-2 before:left-0 before:top-4 before:rounded-full before:border before:content-['']">Salary: <span class="text-gray-900">{{ salary_min | number }} - {{ salary_max | number }}</span></li>
+        <li class="text-base font-normal text-gray-500 leading-9 pl-4 relative before:border-gray-500 before:absolute before:w-2 before:h-2 before:left-0 before:top-4 before:rounded-full before:border before:content-['']">Location: <span class="text-gray-900">{{ location }}</span></li>
+        </ul>
+    </div>
+</div>
