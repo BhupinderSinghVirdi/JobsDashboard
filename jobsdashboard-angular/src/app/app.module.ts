@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -18,6 +18,13 @@ import { ViewJobsAppliedComponent } from './components/view-jobs-applied/view-jo
 import { JobsAppliedViewComponent } from './ui/jobs-applied-view/jobs-applied-view.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { HttpClientModule } from '@angular/common/http';
+
+const appRoutes: Routes = [
+  { path: '', redirectTo: 'jobs', pathMatch: 'full' },
+  { path: 'jobs-applied', component: ViewJobsAppliedComponent },
+  { path: 'jobs-details/:id', component: ViewJobDetailsComponent },
+];
 
 @NgModule({
   declarations: [
@@ -41,6 +48,8 @@ import { LogoComponent } from './components/logo/logo.component';
     FormsModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
