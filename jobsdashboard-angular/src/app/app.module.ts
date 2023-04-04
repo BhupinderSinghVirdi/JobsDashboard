@@ -14,6 +14,8 @@ import { ViewJobDetailsComponent } from './components/view-job-details/view-job-
 import { JobDetailsViewComponent } from './ui/job-details-view/job-details-view.component';
 import { ViewJobsAppliedComponent } from './components/view-jobs-applied/view-jobs-applied.component';
 import { JobsAppliedViewComponent } from './ui/jobs-applied-view/jobs-applied-view.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { LogoComponent } from './components/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { JobsAppliedViewComponent } from './ui/jobs-applied-view/jobs-applied-vi
     ViewJobDetailsComponent,
     JobDetailsViewComponent,
     ViewJobsAppliedComponent,
-    JobsAppliedViewComponent
+    JobsAppliedViewComponent,
+    NavigationComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
