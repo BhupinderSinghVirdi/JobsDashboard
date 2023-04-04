@@ -18,6 +18,8 @@ import { JobsAppliedViewComponent } from './ui/jobs-applied-view/jobs-applied-vi
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountComponent } from './components/account/account.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
     JobsAppliedViewComponent,
     NavigationComponent,
     LogoComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    AccountComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

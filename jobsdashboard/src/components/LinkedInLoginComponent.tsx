@@ -7,7 +7,7 @@ import { redirect } from 'react-router-dom';
 
 const LinkedInPage = () => {
   const { linkedInLogin } = useLinkedIn({
-    clientId: '86vhj2q7ukf83q',
+    clientId: '779wf45r8wfvec',
     redirectUri: `${window.location.origin}/linkedin`, // for Next.js, you can use `${typeof window === 'object' && window.location.origin}/linkedin`
     onSuccess: (code) => {
       console.log(code);
