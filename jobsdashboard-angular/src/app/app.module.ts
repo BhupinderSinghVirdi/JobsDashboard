@@ -32,14 +32,14 @@ import { LogoComponent } from './components/logo/logo.component';
     ViewJobsAppliedComponent,
     JobsAppliedViewComponent,
     NavigationComponent,
-    LogoComponent
+    LogoComponent,
     AdminLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
     ReactiveFormsModule,
   ],
   providers: [],
