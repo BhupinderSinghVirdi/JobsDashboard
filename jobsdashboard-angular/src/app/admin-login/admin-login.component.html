@@ -1,24 +1,27 @@
-<p> <b>Admin Login<b></b>
-<br>
 
+<div class="grid place-items-center h-screen">
+  <p>Admin Login</p>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-    <div class="form-group">
+    <div class="">
         <label for="exampleInputEmail1">Email address</label>
-  <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
-  <small class="form-text text-muted" 
+  <input type="email" class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded
+  " formControlName="email" placeholder="Enter email">
+  <small class="block mt-1 text-gray-700" 
     *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required">
       Please enter an email address....
   </small>
 
-  <small class="form-text text-muted"
+  <small class="block mt-1 text-gray-700"
   *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email">
     Invalid Email address
   </small>
 </div>
 
-<div class="form-group">
+<div class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded">
   <label for="exampleInputPassword1">Password</label>
+  <br>
   <input type="password" class="form-control" formControlName="password" placeholder="Password">
 </div>
-<button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+<button type="submit" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600" [disabled]="!loginForm.valid">Submit</button>
 </form>
+</div>
