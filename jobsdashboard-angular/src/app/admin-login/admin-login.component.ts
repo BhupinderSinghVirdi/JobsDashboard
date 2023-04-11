@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -8,7 +10,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AdminLoginComponent {
   loginForm: FormGroup;
-  constructor() {
+  public loginValid = true;
+  constructor(private authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
@@ -16,9 +19,24 @@ export class AdminLoginComponent {
   }
 
   onSubmit() {
-    if(this.loginForm.valid) {
-      console.log(this.loginForm.value);
-    }
+    this.authService.authenticateUser(this.loginForm.value.email,this.loginForm.value.password).subscribe(
+      (data)=>{
+        if(data.message === "login successful")
+        {
+            console.log(data)
+            this.loginValid=true
+            this.router.navigateByUrl('')
+        }
+        else
+        {
+          console.log("Login failed in else")
+          this.loginValid=false
+        }
+      },
+      (error)=>{
+        console.error(error);
+      }
+    )
   }
 
 
