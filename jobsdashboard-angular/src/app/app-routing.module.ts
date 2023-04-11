@@ -4,13 +4,15 @@ import { ViewJobDetailsComponent } from './components/view-job-details/view-job-
 import { ViewJobsAppliedComponent } from './components/view-jobs-applied/view-jobs-applied.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { LoginComponent } from './components/login/login.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const routes: Routes = [ 
 { path: '', redirectTo: 'jobs', pathMatch: 'full' },
 { path: 'jobs-applied', component: ViewJobsAppliedComponent },
 { path: 'jobs-details/:id', component: ViewJobDetailsComponent },
 { path: 'admin-login', component: AdminLoginComponent },
-{ path: 'login', component: LoginComponent}
+{ path: 'login', component: LoginComponent},
+{ path: 'admin-home', component: AdminHomeComponent}
 ];
 
 @NgModule({

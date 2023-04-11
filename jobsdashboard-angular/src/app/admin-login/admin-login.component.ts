@@ -25,7 +25,7 @@ export class AdminLoginComponent {
         {
             console.log(data)
             this.loginValid=true
-            this.router.navigateByUrl('')
+            this.router.navigateByUrl('admin-home')
         }
         else
         {
