@@ -14,7 +14,6 @@ import { JobDetailsSummaryComponent } from './components/job-details-summary/job
 import { ViewJobDetailsComponent } from './components/view-job-details/view-job-details.component';
 import { JobDetailsViewComponent } from './ui/job-details-view/job-details-view.component';
 import { ViewJobsAppliedComponent } from './components/view-jobs-applied/view-jobs-applied.component';
-import { JobsAppliedViewComponent } from './ui/jobs-applied-view/jobs-applied-view.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -34,7 +33,6 @@ import { MatTableModule } from '@angular/material/table'
     ViewJobDetailsComponent,
     JobDetailsViewComponent,
     ViewJobsAppliedComponent,
-    JobsAppliedViewComponent,
     NavigationComponent,
     LogoComponent,
     AdminLoginComponent,

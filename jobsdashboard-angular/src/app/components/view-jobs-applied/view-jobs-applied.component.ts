@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faArchive } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 
@@ -26,6 +27,7 @@ interface JobsAppliedType {
 export class ViewJobsAppliedComponent implements OnInit  {
   jobs_applied: JobsAppliedType[] = [];
   displayArchived = false;
+  faArchive=faArchive;
 
   constructor(private router: Router) { }
 
