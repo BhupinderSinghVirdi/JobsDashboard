@@ -19,6 +19,8 @@ import { LogoComponent } from './components/logo/logo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountComponent } from './components/account/account.component';
 import { LoginComponent } from './components/login/login.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { MatTableModule } from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { LoginComponent } from './components/login/login.component';
     AdminLoginComponent,
     AccountComponent,
     LoginComponent,
+    AdminHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
