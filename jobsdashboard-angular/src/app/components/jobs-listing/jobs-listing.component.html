@@ -1,0 +1,11 @@
+<div>
+    <div class="job_listing_area">
+      <div class="container mx-auto sm:px-4">
+        <div class="job_lists">
+          <div class="flex flex-wrap">
+            <app-job-list-view *ngFor="let job of jobs_listing$ | async" [job]="job"></app-job-list-view>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
