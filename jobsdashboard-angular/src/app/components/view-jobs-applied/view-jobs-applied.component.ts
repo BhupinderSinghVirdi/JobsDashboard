@@ -37,7 +37,7 @@ export class ViewJobsAppliedComponent implements OnInit  {
 
   async sendGetRequest() {
     try {
-      const response = await axios.get('http://localhost:3001/api/jobsapplied');
+      const response = await axios.get('https://jobs-dashboard-api.onrender.com/api/jobsapplied');
       this.jobs_applied = response.data;
       console.log(response);
     } catch (err) {
@@ -48,7 +48,7 @@ export class ViewJobsAppliedComponent implements OnInit  {
   async handleArchive(user_id: string, job_id: string) {
     try {
       const response = await axios.patch(
-        `http://localhost:3001/api/jobsapplied/${user_id}/${job_id}`,
+        `https://jobs-dashboard-api.onrender.com/api/jobsapplied/${user_id}/${job_id}`,
         { archive: true }
       );
       console.log(response);

@@ -12,7 +12,7 @@ export class AuthService {
 
   authenticateUser(email: string, password: string): Observable<any> {
     const user = { email, password };
-    return this.http.post('http://localhost:3001/api/admins/login', user);
+    return this.http.post('https://jobs-dashboard-api.onrender.com/api/admins/login', user);
   }
   
 }

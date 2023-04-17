@@ -8,7 +8,7 @@ import { JobItem } from '../models/jobitem.model';
 })
 
 export default class JobService {
-  private readonly API_URL = 'http://localhost:3001/api/jobs';
+  private readonly API_URL = 'https://jobs-dashboard-api.onrender.com/api/jobs';
 
   constructor(private httpClient: HttpClient) { }
 

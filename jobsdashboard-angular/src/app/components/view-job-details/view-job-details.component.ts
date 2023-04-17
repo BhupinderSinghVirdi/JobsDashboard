@@ -16,7 +16,7 @@ export class ViewJobDetailsComponent {
   async ngOnInit() {
     const jobId = this.route.snapshot.params['id'];
     try {
-      const response = await axios.get(`http://localhost:3001/api/jobs/${jobId}`);
+      const response = await axios.get(`https://jobs-dashboard-api.onrender.com/api/jobs/${jobId}`);
       const data = response.data;
       this.jobDetails = data;
     } catch (error) {

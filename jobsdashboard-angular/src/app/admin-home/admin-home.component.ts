@@ -33,7 +33,7 @@ export class AdminHomeComponent implements OnInit{
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get<any[]>('http://localhost:3001/api/jobs').subscribe(data => {
+    this.http.get<any[]>('https://jobs-dashboard-api.onrender.com/api/jobs').subscribe(data => {
       this.dataSource = new MatTableDataSource<any>(data);
     });
   }
