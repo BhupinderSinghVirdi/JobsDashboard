@@ -34,7 +34,7 @@ const JobsListing = () => {
 	const sendGetRequest = async () => {
     	try {
 			const response = await axios.get(
-				'http://localhost:3001/api/jobs'
+				'https://jobs-dashboard-api.onrender.com/api/jobs'
 			);
 			setJobsListing(response.data);
 			console.log(response);

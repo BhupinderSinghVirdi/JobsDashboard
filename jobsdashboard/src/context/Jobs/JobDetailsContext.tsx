@@ -34,7 +34,7 @@ const JobDetailsContextProvider: React.FC<JobDetailsContextProviderProps> = ({ c
 
     const getJobDetails = useCallback(async (id: string) => {
         try {
-        const response = await axios.get(`http://localhost:3001/api/jobs/${id}`);
+        const response = await axios.get(`https://jobs-dashboard-api.onrender.com/api/jobs/${id}`);
         setJobDetails(response.data);
         } catch (error) {
         console.log(error);

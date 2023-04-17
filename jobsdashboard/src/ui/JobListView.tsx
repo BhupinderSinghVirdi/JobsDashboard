@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from "react-router-dom";
 import { faMapMarker, faClock, faCoffee  } from '@fortawesome/free-solid-svg-icons'
 
 type JobItem = {
@@ -55,7 +56,7 @@ const JobListView  = ({
                         <img src={company_logo} className=""/>
                     </div>
                     <div className="jobs_conetent">
-                        <a href={"/jobs-details/" + _id}><h4>{position}</h4></a>
+                        <Link to={"/jobs-details/" + _id}><h4>{position}</h4></Link>
                         <div className="links_locat flex items-center">
                             <div className="location">
                                 <p> <i className="fa fa-map-marker"></i> {location}</p>
@@ -68,7 +69,7 @@ const JobListView  = ({
                 </div>
                 <div className="jobs_right">
                     <div className="apply_now">
-                        <a href={"/jobs-details/" + _id} className="boxed-btn3">Apply Now</a>
+                        <Link to={"/jobs-details/" + _id} className="boxed-btn3">Apply Now</Link>
                     </div>
                     <div className="date">
                         <p>Added : {formattedDate}</p>

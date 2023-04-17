@@ -54,7 +54,7 @@ const AdminLogin = () => {
 
       try {
         const response = await axios.post(
-          'http://localhost:3001/api/admins/login',
+          'https://jobs-dashboard-api.onrender.com/api/admins/login',
           data,
           config
         );

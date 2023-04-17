@@ -7,7 +7,7 @@ import axios from 'axios';
 const ViewJobsDetails = () => {
     const handleSubmit = async (formData : FormData) => {
         try {
-            const response = await axios.post('http://localhost:3001/api/jobsapplied', formData, {
+            const response = await axios.post('https://jobs-dashboard-api.onrender.com/api/jobsapplied', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

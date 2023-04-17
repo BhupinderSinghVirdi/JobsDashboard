@@ -23,7 +23,7 @@ const ViewJobsApplied = () => {
 	const sendGetRequest = async () => {
     	try {
 			const response = await axios.get(
-				'http://localhost:3001/api/jobsapplied'
+				'https://jobs-dashboard-api.onrender.com/api/jobsapplied'
 			);
 			setJobsApplied(response.data);
 			console.log(response);
@@ -35,7 +35,7 @@ const ViewJobsApplied = () => {
 	const handleArchive = async (user_id: string, job_id: string) => {
 		try {
 			const response = await axios.patch(
-				`http://localhost:3001/api/jobsapplied/${user_id}/${job_id}`,
+				`https://jobs-dashboard-api.onrender.com/api/jobsapplied/${user_id}/${job_id}`,
 				{ archive: true }
 			);
 			console.log(response);
