@@ -26,6 +26,7 @@ function App() {
         <Route path="/jobs-applied" element={<ViewJobsApplied />} />
         <Route path="/jobs-details/:id" element={<ViewJobsDetails />} />
         <Route path="/login" element={<Login />} />
+        {/* <PrivateRoute exact path="/login" component={Login}/> */}
         <Route path="/linkedin" element={<LinkedInCallback />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/adminjobslist" element={<AdminJobsListView />} />
