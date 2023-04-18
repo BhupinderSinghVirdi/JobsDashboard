@@ -19,6 +19,7 @@ router.post("/createAccount", async (req, res) => {
     email: req.body.email,
     name: req.body.name,
     phone: req.body.phone,
+    password: req.body.password
   });
 
   try {
@@ -56,10 +57,10 @@ router.delete("/deleteAccount", async (req, res) => {
 });
 
 //Login a User into Account
-router.post("/login", (req, res) => {
-  const { name, email, password } = req.body;
+router.post("/SignUp", (req, res) => {
+  const { name, email, phone, password } = req.body;
 
-  if (!(name && email && password)) {
+  if (!(name && email && password && phone)) {
     res.status(400).json({
       message: `Bad Request. Please provide all details in the request.`,
     });
@@ -70,7 +71,15 @@ router.post("/login", (req, res) => {
       res
         .cookie("token", data.token)
         .status(200)
-        .redirect("/getAcccount");
+        .json(
+          {
+            message: "successful",
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            token : data.token
+          }
+        )
     })
     .catch((err) => {
       res.status(500).json({
@@ -78,5 +87,35 @@ router.post("/login", (req, res) => {
       });
     });
 });
+
+router.post("/login", (req, res) => {
+  const { email, password } = req.body;
+
+  if (!(email && password)) {
+    res.status(400).json({
+      message: `Bad Request. Please provide all details in the request.`,
+    });
+  }
+
+  login.LoginUser(email, password)
+    .then((data) => {
+      res
+        .cookie("token", data.token)
+        .status(200)
+        .json(
+          {
+            message: "successful",
+            email: data.email,
+            token : data.token
+          })
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message: `Server error: ${err}`,
+      });
+    });
+});
+
+
 
 module.exports = router;

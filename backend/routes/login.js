@@ -2,7 +2,7 @@ const express = require("express");
 const { default: mongoose } = require("mongoose");
 let bcrypt = require("bcryptjs");
 let jwt = require("jsonwebtoken");
-let accounts = require("../models/AccountModel");
+let userSchema = require("../models/AccountModel");
 
 let methods = {
   registerUser: async (name, email, password) => {
@@ -12,7 +12,7 @@ let methods = {
     }
 
     encryptedPassword = await bcrypt.hash(password, 10);
-
+    console.log(encryptedPassword)
     // Create user in our database
     const user = await userSchema.create({
       name,
@@ -30,12 +30,13 @@ let methods = {
     // save user token
     user.token = token;
     // return new user
+    console.log(user)
     return user;
   },
   LoginUser: async (email, password) => {
     // Validate if user exist in our database
     const user = await userSchema.findOne({ email });
-
+    console.log(user)
     if (user && (await bcrypt.compare(password, user.password))) {
       //Create token
       const token = jwt.sign(
