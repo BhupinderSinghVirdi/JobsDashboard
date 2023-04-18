@@ -1,0 +1,28 @@
+<div class="lg:w-full pr-4 pl-4 md:w-full pr-4 pl-4">
+  <div class="single_jobs white-bg flex justify-between">
+    <div class="jobs_left flex items-center">
+      <div class="thumb">
+        <img [src]="job.company_logo" />
+      </div>
+      <div class="jobs_conetent">
+        <a [routerLink]="['/jobs-details', job._id]"><h4>{{ job.position }}</h4></a>
+        <div class="links_locat flex items-center">
+          <div class="location">
+            <p><i class="fa fa-map-marker"></i> {{ job.location }}</p>
+          </div>
+          <div class="location">
+            <p><i class="fa fa-clock-o"></i> {{ job.company }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="jobs_right">
+      <div class="apply_now">
+        <a [routerLink]="['/jobs-details', job._id]" class="boxed-btn3">Apply Now</a>
+      </div>
+      <div class="date">
+        <p>Added: {{ formattedDate }}</p>
+      </div>
+    </div>
+  </div>
+</div>

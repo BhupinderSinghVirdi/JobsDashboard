@@ -5,9 +5,10 @@ import { ViewJobsAppliedComponent } from './components/view-jobs-applied/view-jo
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { JobsListingComponent } from './components/jobs-listing/jobs-listing.component';
 
 const routes: Routes = [ 
-{ path: '', redirectTo: 'jobs', pathMatch: 'full' },
+{ path: '', component: JobsListingComponent },
 { path: 'jobs-applied', component: ViewJobsAppliedComponent },
 { path: 'jobs-details/:id', component: ViewJobDetailsComponent },
 { path: 'admin-login', component: AdminLoginComponent },

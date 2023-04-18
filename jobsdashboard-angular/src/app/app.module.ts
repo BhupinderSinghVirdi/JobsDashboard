@@ -14,14 +14,15 @@ import { JobDetailsSummaryComponent } from './components/job-details-summary/job
 import { ViewJobDetailsComponent } from './components/view-job-details/view-job-details.component';
 import { JobDetailsViewComponent } from './ui/job-details-view/job-details-view.component';
 import { ViewJobsAppliedComponent } from './components/view-jobs-applied/view-jobs-applied.component';
-import { JobsAppliedViewComponent } from './ui/jobs-applied-view/jobs-applied-view.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountComponent } from './components/account/account.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { JobListViewComponent } from './ui/job-list-view/job-list-view.component';
+import { JobsListingComponent } from './components/jobs-listing/jobs-listing.component'
 
 @NgModule({
   declarations: [
@@ -34,13 +35,14 @@ import { MatTableModule } from '@angular/material/table'
     ViewJobDetailsComponent,
     JobDetailsViewComponent,
     ViewJobsAppliedComponent,
-    JobsAppliedViewComponent,
     NavigationComponent,
     LogoComponent,
     AdminLoginComponent,
     AccountComponent,
     LoginComponent,
     AdminHomeComponent,
+    JobListViewComponent,
+    JobsListingComponent,
   ],
   imports: [
     BrowserModule,

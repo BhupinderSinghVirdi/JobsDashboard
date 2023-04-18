@@ -1,0 +1,44 @@
+.single_jobs {
+    margin-bottom: 30px;
+    padding: 30px;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .jobs_left .thumb {
+    margin-right: 20px;
+  }
+  
+  .jobs_left .thumb img {
+    max-width: 80px;
+  }
+  
+  .links_locat .location {
+    margin-right: 30px;
+  }
+  
+  .apply_now {
+    margin-bottom: 20px;
+  }
+  
+  .date {
+    text-align: right;
+  }
+  
+  @media (max-width: 767px) {
+    .single_jobs {
+      padding: 20px;
+    }
+  
+    .jobs_left .thumb {
+      margin-right: 10px;
+    }
+  
+    .jobs_left .thumb img {
+      max-width: 60px;
+    }
+  
+    .links_locat .location {
+      margin-right: 15px;
+    }
+  }

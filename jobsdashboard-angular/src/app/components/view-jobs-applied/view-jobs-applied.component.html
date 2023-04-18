@@ -18,13 +18,18 @@
                 </tr>
             </thead>
             <tbody>
-                <ng-container *ngFor="let job of jobs_applied">
-                    <app-jobs-applied-view
-                        [user_id]="job.user_id"
-                        [jobsApplied]="job.jobs_applied"
-                        [displayArchived]="displayArchived"
-                        >
-                    </app-jobs-applied-view>
+                <ng-container *ngFor="let jobs of jobs_applied">
+                    <tr *ngFor="let job of jobs.jobs_applied" [hidden]="!((displayArchived && job.archive) || (!displayArchived && !job.archive))">
+                        <td class="border-grey-light border hover:bg-gray-100 p-3 px-5">{{ job.position }}</td>
+                        <td class="border-grey-light border hover:bg-gray-100 p-3 px-5">{{ job.company }}</td>
+                        <td class="border-grey-light border hover:bg-gray-100 p-3 px-5">{{ job.date_applied | date: 'shortDate' }}</td>
+                        <td class="border-grey-light border hover:bg-gray-100 p-3 px-5">{{ job.status }}</td>
+                        <td class="border-grey-light border hover:bg-gray-100 p-3 px-5">
+                          <button *ngIf="!job.archive" (click)="handleArchive(jobs.user_id, job._id)" class="{{ 'bg-red-500' }} text-white py-2 px-4 rounded">
+                            <fa-icon [icon]="faArchive"></fa-icon>
+                          </button>
+                        </td>
+                  </tr>
                 </ng-container>
             </tbody>
         </table>
