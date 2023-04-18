@@ -8,6 +8,7 @@ import ViewJobsApplied from "./components/Jobs/ViewJobsApplied";
 import ViewJobsDetails from "./components/Jobs/ViewJobDetails";
 import ViewJobsListing from "./components/Jobs/JobsListing";
 import EditAcc from "./components/Account/EditAccount";
+import CreateAcc from "./components/Account/CreateAccount";
 import { LinkedInCallback } from "react-linkedin-login-oauth2";
 import NotFound from './components/NotFound';
 import AdminLogin from "./components/Admin/AdminLogin";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         {/* <PrivateRoute exact path="/login" component={Login}/> */}
         <Route path="/linkedin" element={<LinkedInCallback />} />
+        <Route path="/signUp" element={<CreateAcc  />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/adminjobslist" element={<AdminJobsListView />} />
         <Route path="/AccountDetails" element={<EditAcc email="blah blah" name="Demo User" phoneNumber={989282929}/>} />
