@@ -1,13 +1,60 @@
-<div class="mat-elevation-z8">
+<div class="p-11 font-sans">
+  <h2 class="text-lg font-extrabold underline-offset-auto py-5">Jobs Table</h2>
+  <p class="pt-4">All the Jobs are displayer here and can be deleted which will not be visible to the user</p>
+  <p class="pt-4">Click on any job ID to view the info..</p>
+  <div class="pt-8 mat-elevation-z8 leading-10">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
-        <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
-        <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+      <ng-container matColumnDef="_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-lg font-extrabold"> _ID </th>
+        <td mat-cell *matCellDef="let element">
+          <a class="text-[#6195de] font-bold" routerLink="/jobs-details/{{element['_id']}}">{{element._id}} </a>
+          <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md" type="button" (click)="deleteJob(element._id)">
+            Delete
+          </button>
+
+          </td>
       </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-lg font-extrabold"> DATE </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="company">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-lg font-extrabold"> COMPANY </th>
+        <td mat-cell *matCellDef="let element"> {{element.company}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="company_logo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-lg font-extrabold"> LOGO </th>
+        <td mat-cell *matCellDef="let element">
+          <img src="{{element.logo}}" onerror="this.onerror=null; this.src='https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg'" width="80" height="80">
+          </td>
+      </ng-container>
+
+      <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-lg font-extrabold"> LOCATION </th>
+        <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="salary_min">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-lg font-extrabold"> MIN SALARY </th>
+        <td mat-cell *matCellDef="let element"> {{element.salary_min}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="salary_max">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-lg font-extrabold"> MAX SALARY </th>
+        <td mat-cell *matCellDef="let element"> {{element.salary_max}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="url">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-lg font-extrabold"> URL </th>
+        <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+      </ng-container>
+
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
-  
-  
-  
+  </div>
