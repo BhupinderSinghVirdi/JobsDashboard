@@ -12,7 +12,9 @@ const AccountModel = new mongoose.Schema(
         "name": {
             "type": "string"
         },
-        
+        "password": {
+            "type": "string"
+        }
     }
 )
 
