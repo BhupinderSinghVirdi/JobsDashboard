@@ -52,8 +52,6 @@ app.use('/api/jobsapplied', jobsAppliedRoutes)
 
 app.use('/api/admins', adminRoutes)
 
-// app.use('/api/login', login)
-
 
 
 
